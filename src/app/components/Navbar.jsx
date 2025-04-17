@@ -11,7 +11,7 @@ const Navbar = () => {
             <RxHamburgerMenu className="size-5" />
           </div>
         </div>
-        <a className="text-2xl font-bold">Dua Page</a>
+        <a className="text-2xl font-bold poppins-font">Dua Page</a>
       </div>
 
       <div className="navbar-center flex-grow flex justify-end min-w-1/2">

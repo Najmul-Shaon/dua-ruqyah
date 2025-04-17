@@ -1,18 +1,15 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import Categories from "./Categories";
 import Settings from "./components/Settings";
+import Contents from "./components/Contents";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 const inter = Inter({
@@ -29,27 +26,36 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${geistMono.variable} antialiased bg-gray-100`}
+        className={`${inter.variable} ${poppins.variable} antialiased bg-gray-100`}
       >
-        <div className="flex items-start gap-7">
-          <Menu />
+        <div className="flex items-start gap-7 h-screen overflow-hidden pt-4 inter-font">
+          <div className="sticky top-0 h-screen">
+            <Menu />
+          </div>
 
-          <div className="w-full">
-            <Navbar />
-            <div className="grid grid-cols-12 gap-8">
-              <div className="col-span-3">
+          <div className="w-full h-screen flex flex-col">
+            <div className="sticky top-0 z-10">
+              <Navbar />
+            </div>
+
+            <div className="grid grid-cols-12 gap-8 flex-1 overflow-hidden">
+              <div className="col-span-3 sticky top-16 h-[calc(100vh-64px)] overflow-auto no-scrollbar">
                 <Categories />
               </div>
-              <div className="col-span-7">
-                <Categories />
+
+              <div className="col-span-7 overflow-y-auto h-[calc(100vh-64px)] pr-2 no-scrollbar">
+                <Contents />
+                {/* {children} */}
               </div>
-              <div className="col-span-2">
+
+              <div className="col-span-2 sticky top-16 h-[calc(100vh-64px)] overflow-auto">
                 <Settings />
               </div>
             </div>
           </div>
         </div>
-        {children}
+
+        {/* {children} */}
       </body>
     </html>
   );

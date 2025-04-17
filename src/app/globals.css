@@ -1,3 +1,27 @@
 @import "tailwindcss";
 
 @plugin "daisyui";
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.inter-font {
+  font-family: var(--font-inter), monospace;
+}
+.poppins-font {
+  font-family: var(--font-poppins), monospace;
+}
+
+@font-face {
+  font-family: "me_quran";
+  src: url("/fonts/me_quran.ttf") format("truetype");
+}
+
+.me_quran-font {
+  font-family: "me_quran", serif;
+}

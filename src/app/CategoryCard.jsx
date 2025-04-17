@@ -19,11 +19,15 @@ const CategoryCard = () => {
           <h3 className="text-[#1FA45B] font-semibold text-base">
             Introduction to Dua
           </h3>
-          <p className="text-[#7E7E7E] text-sm font-normal">Subcategory: 11</p>
+          <p className="text-[#7E7E7E] text-sm font-normal poppins-font">
+            Subcategory: 11
+          </p>
         </div>
         <div className="flex flex-col items-center flex-shrink-0">
           <p className="font-semibold text-base text-[#393939]">15</p>
-          <p className="font-normal text-[#7E7E7E] text-sm">Duas</p>
+          <p className="font-normal text-[#7E7E7E] text-sm poppins-font">
+            Duas
+          </p>
         </div>
       </div>
       {/* expandable subcategories  */}

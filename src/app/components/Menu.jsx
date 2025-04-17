@@ -4,7 +4,7 @@ const Menu = () => {
       <div>
         <img className="w-[73px]" src="/assets/logo.png" alt="site logo" />
       </div>
-      <div className="flex flex-col gap-7 py-24">
+      <div className="flex flex-col gap-7">
         <img className="w-[38px]" src="/assets/Home.png" alt="site logo" />
         <img className="w-[38px]" src="/assets/All Duas.png" alt="site logo" />
         <img className="w-[38px]" src="/assets/Memorize.png" alt="site logo" />
