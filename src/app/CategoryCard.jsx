@@ -1,16 +1,35 @@
 "use client";
 import { useState } from "react";
 import SubCategoryStep from "./SubCategoryStep";
+import { useQuery } from "@tanstack/react-query";
+import axiosInstence from "../../lib/axios";
 
 // const CategoryCard = ({ setIsSubCatView, isSubCatView }) => {
 const CategoryCard = ({ category }) => {
-  console.log(category);
+  // console.log(category);
   const [isSubCatView, setIsSubCatView] = useState(false);
+  const [isSubCatId, setIsSubCatId] = useState(null);
+  const handleSubcat = (catId) => {
+    console.log(catId);
+    setIsSubCatId(catId);
+    setIsSubCatView(!isSubCatView);
+  };
+
+  const { data: subCategories = [] } = useQuery({
+    enabled: !!isSubCatId,
+    queryKey: ["subCategories"],
+    queryFn: async () => {
+      const res = await axiosInstence.get(`/api/sub-category/${isSubCatId}`);
+      return res.data;
+    },
+  });
+  // console.log(subCategories);
+
   return (
     <>
       <div
         //   if user click on this card expand its subCategories items
-        onClick={() => setIsSubCatView(!isSubCatView)}
+        onClick={() => handleSubcat(category?.cat_id)}
         className="flex gap-4 justify-between items-center bg-[#E8F0F5] p-2.5 rounded-xl cursor-pointer"
       >
         <figure className="bg-[#CFE0E5] p-2.5 rounded-xl">
@@ -34,7 +53,7 @@ const CategoryCard = ({ category }) => {
         </div>
       </div>
       {/* expandable subcategories  */}
-      {isSubCatView && <SubCategoryStep />}
+      {isSubCatView && <SubCategoryStep subCategories={subCategories} />}
     </>
   );
 };
