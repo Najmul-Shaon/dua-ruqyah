@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+// todo: need to fetch data from backend
 const steps = [
   "What is DuaWhat is DuaWhat is DuaWhat is DuaWhat is Dua",
   "Conditions for Dua",

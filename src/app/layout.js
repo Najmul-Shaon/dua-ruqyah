@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import Categories from "./Categories";
+import Settings from "./components/Settings";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,17 @@ export default function RootLayout({ children }) {
 
           <div className="w-full">
             <Navbar />
-            <Categories />
+            <div className="grid grid-cols-12 gap-8">
+              <div className="col-span-3">
+                <Categories />
+              </div>
+              <div className="col-span-7">
+                <Categories />
+              </div>
+              <div className="col-span-2">
+                <Settings />
+              </div>
+            </div>
           </div>
         </div>
         {children}

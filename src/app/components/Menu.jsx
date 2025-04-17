@@ -1,6 +1,6 @@
 const Menu = () => {
   return (
-    <div className="flex flex-col justify-between items-center bg-white max-w-[100px] min-h-full rounded-3xl py-3 px-0">
+    <div className="flex flex-col justify-between items-center bg-white max-w-[100px] min-h-screen rounded-3xl py-3 px-0">
       <div>
         <img className="w-[73px]" src="/assets/logo.png" alt="site logo" />
       </div>

@@ -8,6 +8,7 @@ const CategoryCard = () => {
   return (
     <>
       <div
+        //   if user click on this card expand its subCategories items
         onClick={() => setIsSubCatView(!isSubCatView)}
         className="flex gap-4 justify-between items-center bg-[#E8F0F5] p-2.5 rounded-xl cursor-pointer"
       >
@@ -25,6 +26,7 @@ const CategoryCard = () => {
           <p className="font-normal text-[#7E7E7E] text-sm">Duas</p>
         </div>
       </div>
+      {/* expandable subcategories  */}
       {isSubCatView && <SubCategoryStep />}
     </>
   );
