@@ -1,7 +1,18 @@
 import { CiSearch } from "react-icons/ci";
 import CategoryCard from "./CategoryCard";
+import { useQuery } from "@tanstack/react-query";
+import axiosInstence from "../../lib/axios";
 
 const Categories = () => {
+  const { data: categories = [] } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const res = await axiosInstence.get("/api/category");
+      return res.data;
+    },
+  });
+
+  // console.log(categories);
   return (
     <div className="rounded-xl bg-white mt-9 min-h-screen border border-[#E2E2E2]">
       <h3 className="text-center p-4 bg-[#1FA45B] text-white font-semibold text-lg rounded-t-xl">
@@ -15,10 +26,12 @@ const Categories = () => {
           </label>
         </div>
         <div className="p-4 flex flex-col gap-4">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.cat_id}
+              category={category}
+            ></CategoryCard>
+          ))}
         </div>
       </div>
     </div>
