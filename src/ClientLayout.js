@@ -18,10 +18,10 @@ export default function ClientLayout({ children }) {
         <div className="flex-1 overflow-auto">
           <Navbar />
           <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-10">
+            <div className="lg:col-span-10 col-span-12">
               <CatContentLayout />
             </div>
-            <div className="col-span-2">
+            <div className="hidden lg:block col-span-2">
               <Settings />
             </div>
           </div>

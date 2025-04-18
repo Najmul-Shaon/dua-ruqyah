@@ -2,6 +2,7 @@ import { CiSearch } from "react-icons/ci";
 import { useQuery } from "@tanstack/react-query";
 import axiosInstence from "../../../lib/axios";
 import CategoryCard from "./CategoryCard";
+import { FaRegWindowClose } from "react-icons/fa";
 
 const Categories = ({ setContents }) => {
   const { data: categories = [] } = useQuery({
@@ -14,9 +15,10 @@ const Categories = ({ setContents }) => {
 
   return (
     <div className="rounded-xl bg-white mt-9 min-h-screen border border-[#E2E2E2]">
-      <h3 className="text-center p-4 bg-[#1FA45B] text-white font-semibold text-lg rounded-t-xl">
+      <h3 className="flex items-center justify-between text-center p-4 bg-[#1FA45B] text-white font-semibold text-lg rounded-t-xl">
         Categories
       </h3>
+      <p></p>
       <div>
         <div className="p-4 pb-0">
           <label className="input w-full">

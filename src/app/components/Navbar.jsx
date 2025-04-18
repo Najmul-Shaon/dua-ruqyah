@@ -1,20 +1,19 @@
 import { CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaCaretDown } from "react-icons/fa";
+import { FaGear } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
     <div className="navbar flex w-full">
       <div className="navbar-start flex-grow-0">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <RxHamburgerMenu className="size-5" />
-          </div>
+        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <RxHamburgerMenu className="size-5" />
         </div>
         <a className="text-2xl font-bold poppins-font">Dua Page</a>
       </div>
 
-      <div className="navbar-center flex-grow flex justify-end min-w-1/2">
+      <div className="hidden navbar-center flex-grow lg:flex justify-end min-w-1/2">
         <div>
           <label className="input pe-1">
             <input
@@ -30,7 +29,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex-grow-0">
-        <div className="flex items-center gap-1.5">
+        <div className="hidden lg:flex items-center gap-1.5">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -54,6 +53,14 @@ const Navbar = () => {
             </ul>
           </div>
           <FaCaretDown className="text-xl text-gray-500" />
+        </div>
+        <div className="flex items-center gap-2 lg:hidden">
+          <div className="bg-[#76a38b] p-1.5 rounded-full">
+            <CiSearch className="text-xl" />
+          </div>
+          <div className="bg-[#76a38b] p-1.5 rounded-full">
+            <FaGear className="text-xl" />
+          </div>
         </div>
       </div>
     </div>
