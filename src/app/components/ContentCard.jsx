@@ -12,7 +12,6 @@ const ContentCard = ({ content, index }) => {
   const [isPlay, setIsPlay] = useState(false);
   const audioRef = useRef(null);
 
-  // console.log(content?.audio);
 
   useEffect(() => {
     if (audioRef.current) {

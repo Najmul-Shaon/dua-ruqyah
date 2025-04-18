@@ -2,7 +2,7 @@ import React from "react";
 import ContentCard from "./ContentCard";
 
 const Contents = ({ content, index }) => {
-  console.log(content);
+
   return (
     <div className="mt-9">
       <h3 className="font-medium text-base text-[#393939] py-4 px-8 bg-white rounded-xl border border-[#E2E2E2]">

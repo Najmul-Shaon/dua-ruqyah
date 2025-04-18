@@ -4,7 +4,6 @@ import Contents from "./components/Contents";
 
 const CatContentLayout = () => {
   const [contents, setContents] = useState([]);
-  console.log(contents);
   return (
     <div className="grid grid-cols-12 gap-8">
       {/* Categories will stay fixed with no scroll */}

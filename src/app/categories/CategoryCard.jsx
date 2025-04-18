@@ -5,12 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import axiosInstence from "../../../lib/axios";
 
 const CategoryCard = ({ category, setContents }) => {
-  // console.log(category);
+
   const [isSubCatView, setIsSubCatView] = useState(false);
   const [isSubCatId, setIsSubCatId] = useState(null);
 
   const handleSubcat = async (catId) => {
-    console.log(catId);
+
     setIsSubCatId(catId);
     setIsSubCatView(!isSubCatView);
     try {

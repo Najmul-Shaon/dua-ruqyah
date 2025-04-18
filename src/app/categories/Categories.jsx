@@ -12,7 +12,6 @@ const Categories = ({ setContents }) => {
     },
   });
 
-  // console.log(categories);
   return (
     <div className="rounded-xl bg-white mt-9 min-h-screen border border-[#E2E2E2]">
       <h3 className="text-center p-4 bg-[#1FA45B] text-white font-semibold text-lg rounded-t-xl">
