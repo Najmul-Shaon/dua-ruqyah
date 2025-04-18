@@ -1,9 +1,9 @@
 import { CiSearch } from "react-icons/ci";
-import CategoryCard from "./CategoryCard";
 import { useQuery } from "@tanstack/react-query";
-import axiosInstence from "../../lib/axios";
+import axiosInstence from "../../../lib/axios";
+import CategoryCard from "./CategoryCard";
 
-const Categories = () => {
+const Categories = ({ setContents }) => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
@@ -30,6 +30,7 @@ const Categories = () => {
             <CategoryCard
               key={category.cat_id}
               category={category}
+              setContents={setContents}
             ></CategoryCard>
           ))}
         </div>

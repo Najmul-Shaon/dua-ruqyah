@@ -1,19 +1,31 @@
 "use client";
-import { useState } from "react";
-import SubCategoryStep from "./SubCategoryStep";
+import { useEffect, useState } from "react";
+import SubCategoryStep from "../components/SubCategoryStep";
 import { useQuery } from "@tanstack/react-query";
-import axiosInstence from "../../lib/axios";
+import axiosInstence from "../../../lib/axios";
 
-// const CategoryCard = ({ setIsSubCatView, isSubCatView }) => {
-const CategoryCard = ({ category }) => {
+const CategoryCard = ({ category, setContents }) => {
   // console.log(category);
   const [isSubCatView, setIsSubCatView] = useState(false);
   const [isSubCatId, setIsSubCatId] = useState(null);
-  const handleSubcat = (catId) => {
+
+  const handleSubcat = async (catId) => {
     console.log(catId);
     setIsSubCatId(catId);
     setIsSubCatView(!isSubCatView);
+    try {
+      const res = await axiosInstence.get(`/api/dua/${catId}`);
+      setContents(res.data);
+    } catch (err) {
+      console.error("Failed to fetch duas:", err);
+    }
   };
+
+  useEffect(() => {
+    if (category?.cat_id === 1) {
+      handleSubcat(1);
+    }
+  }, []);
 
   const { data: subCategories = [] } = useQuery({
     enabled: !!isSubCatId,
@@ -23,7 +35,6 @@ const CategoryCard = ({ category }) => {
       return res.data;
     },
   });
-  // console.log(subCategories);
 
   return (
     <>
@@ -36,9 +47,12 @@ const CategoryCard = ({ category }) => {
           <img src="/assets/005-fever.png" alt="" />
         </figure>
         <div className="flex-1">
-          <h3 className="text-[#1FA45B] font-semibold text-base">
+          {/* <Link href={`/category/${category?.cat_name_en}`}> */}
+          <h3 className="text-[#1FA45B] font-semibold text-base cursor-pointer">
             {category?.cat_name_en}
           </h3>
+          {/* </Link> */}
+
           <p className="text-[#7E7E7E] text-sm font-normal poppins-font">
             Subcategory: {category?.no_of_subcat}
           </p>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function SubCategoryStep({ currentStep = 0, subCategories }) {
-  console.log(subCategories);
+  // console.log(subCategories);
   return (
     <div className="flex flex-col space-y-4 pl-4 border-l-2 border-dotted border-[#1FA45B]">
       {subCategories.map((item, index) => (
