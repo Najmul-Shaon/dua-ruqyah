@@ -2,7 +2,6 @@ import { CiSearch } from "react-icons/ci";
 import { useQuery } from "@tanstack/react-query";
 import axiosInstence from "../../../lib/axios";
 import CategoryCard from "./CategoryCard";
-import { FaRegWindowClose } from "react-icons/fa";
 
 const Categories = ({ setContents }) => {
   const { data: categories = [] } = useQuery({
